@@ -18,7 +18,7 @@ jobs:
           java-version: '17'
           cache: 'maven'
       - uses: riccione/setup_firefox@v1
-        run: firefox --version
+      - run: firefox --version
       - uses: actions/checkout@v3
       - uses: browser-actions/setup-geckodriver@latest
         with:
