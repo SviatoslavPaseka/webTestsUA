@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Add to cart and Sort Test" parallel="methods">
+    <test name="Test amount - 2">
+        <classes>
+            <class name="com.underarmour.BaseFunctionalityTest">
+                <methods>
+                    <include name="sortTest"/>
+                    <include name="addToCartTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
