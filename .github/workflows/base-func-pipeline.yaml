@@ -31,6 +31,6 @@ jobs:
       - name: List Downloaded Files
         run: ls -l
       - name: Run selenium server standalone
-        run: java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.141.59.jar
+        run: java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.141.59.jar &
       - name: Run UI tests
         run: mvn clean test -Dsuite=UA_suites/UA_LS
