@@ -24,13 +24,13 @@ public class BaseFunctionalityTest implements IAbstractTest {
         getDriver().get("https://www.underarmour.com/en-us/");
         final String KEYWORD = "T-shirt";
         HomePage homePage = new HomePage(getDriver());
-//        CommonPage commonPage = new CommonPage(getDriver());
+        CommonPage commonPage = new CommonPage(getDriver());
         Assert.assertTrue(homePage.isOpened(), "[HOME PAGE] is not opened");
         homePage.getHeaderMenu().inputKeywordForSearch(KEYWORD);
         homePage.getHeaderMenu().clickSearchButton();
         SearchPage searchPage = new SearchPage(getDriver());
         Assert.assertTrue(searchPage.isOpened(), "[SEARCH PAGE] is not opened");
-//        commonPage.closeAds();
+        commonPage.closeAds();
         Thread.sleep(5000);
         searchPage.getTitlesOfSearchingProducts().forEach(e -> LOGGER.info(e.getText()));
         Assert.assertTrue(searchPage.getTitlesOfSearchingProducts().stream()
