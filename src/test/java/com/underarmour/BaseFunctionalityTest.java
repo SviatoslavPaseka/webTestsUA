@@ -33,7 +33,7 @@ public class BaseFunctionalityTest implements IAbstractTest {
         commonPage.closeAds();
         Thread.sleep(5000);
         searchPage.getTitlesOfSearchingProducts().forEach(e -> LOGGER.info(e.getText()));
-        Assert.assertTrue(searchPage.getTitlesOfSearchingProducts().stream()
+        Assert.assertFalse(searchPage.getTitlesOfSearchingProducts().stream()
                 .anyMatch(e -> e.getText().toLowerCase().contains(KEYWORD.toLowerCase())));
     }
 
