@@ -30,7 +30,7 @@ public class BaseFunctionalityTest implements IAbstractTest {
         homePage.getHeaderMenu().clickSearchButton();
         SearchPage searchPage = new SearchPage(getDriver());
         Assert.assertTrue(searchPage.isOpened(), "[SEARCH PAGE] is not opened");
-        commonPage.closeAds();
+//        commonPage.closeAds();
         Thread.sleep(5000);
         searchPage.getTitlesOfSearchingProducts().forEach(e -> LOGGER.info(e.getText()));
         Assert.assertTrue(searchPage.getTitlesOfSearchingProducts().stream()
