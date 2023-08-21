@@ -89,7 +89,7 @@ public class BaseFunctionalityTest implements IAbstractTest {
         getDriver().get("https://www.underarmour.com/en-us/");
         CommonPage commonPage = new CommonPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
-        commonPage.acceptCookies();
+//        commonPage.acceptCookies();
         homePage.getHeaderMenu().inputKeywordForSearch(keyword);
         SearchPage searchPage = homePage.getHeaderMenu().clickSearchButton();
         Thread.sleep(5000);
