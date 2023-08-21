@@ -21,7 +21,7 @@ jobs:
           cache: 'maven'
       - uses: browser-actions/setup-firefox@v1
       - run: firefox --version
-      - run: echo $PATH
+
       - uses: browser-actions/setup-geckodriver@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -31,6 +31,7 @@ jobs:
           curl -LO https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
       - name: List Downloaded Files
         run: ls -l
+      - run: echo $PATH
       - name: Run selenium server standalone
         run: java -jar -Dwebdriver.gecko.driver=/opt/selenium/geckodriver selenium-server-standalone-3.141.59.jar &
       - name: Run UI tests
