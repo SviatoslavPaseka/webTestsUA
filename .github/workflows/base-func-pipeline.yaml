@@ -19,7 +19,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'maven'
-      - uses: riccione/setup_firefox@v1
+      - uses: browser-actions/setup-firefox@v1
       - run: firefox --version
 
       - uses: browser-actions/setup-geckodriver@latest
@@ -32,7 +32,6 @@ jobs:
       - name: List Downloaded Files
         run: ls -l
       - name: Run selenium server standalone
-#        run: java -jar -Dwebdriver.gecko.driver=/opt/selenium/geckodriver selenium-server-standalone-3.141.59.jar &
-        run: java -jar selenium-server-standalone-3.141.59.jar &
+        run: java -jar -Dwebdriver.gecko.driver=/opt/selenium/geckodriver selenium-server-standalone-3.141.59.jar &
       - name: Run UI tests
         run: mvn clean test -Dsuite=UA_suites/UA_LS
