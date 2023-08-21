@@ -21,7 +21,7 @@ jobs:
           cache: 'maven'
       - uses: browser-actions/setup-firefox@v1
       - run: firefox --version
-
+      - run: echo $PATH
       - uses: browser-actions/setup-geckodriver@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
