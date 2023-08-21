@@ -24,7 +24,7 @@ public class BaseFunctionalityTest implements IAbstractTest {
         getDriver().get("https://www.underarmour.com/en-us/");
         final String KEYWORD = "T-shirt";
         HomePage homePage = new HomePage(getDriver());
-        CommonPage commonPage = new CommonPage(getDriver());
+//        CommonPage commonPage = new CommonPage(getDriver());
         Assert.assertTrue(homePage.isOpened(), "[HOME PAGE] is not opened");
         homePage.getHeaderMenu().inputKeywordForSearch(KEYWORD);
         homePage.getHeaderMenu().clickSearchButton();
