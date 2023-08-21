@@ -93,8 +93,8 @@ public class BaseFunctionalityTest implements IAbstractTest {
         homePage.getHeaderMenu().inputKeywordForSearch(keyword);
         SearchPage searchPage = homePage.getHeaderMenu().clickSearchButton();
         Thread.sleep(5000);
-//        commonPage.closeAds();
-//        Thread.sleep(5000);
+        commonPage.closeAds();
+        Thread.sleep(5000);
         searchPage.getPricesForProducts().forEach(e -> LOGGER.info("price: " + e));
         searchPage.clickOnSortButton();
         searchPage.chooseSortOption(SortingTypeSearchPage.PRICE_LOW_HIGH);
