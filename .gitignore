@@ -4,7 +4,9 @@
 *.jar
 *.war
 *.ear
-src/main/resources/_testdata.properties
+#src/main/resources/_testdata.properties
+src/main/resources/creds.txt
+src/main/resources/creds_encrypted.txt
 /.project
 /.settings
 /reports

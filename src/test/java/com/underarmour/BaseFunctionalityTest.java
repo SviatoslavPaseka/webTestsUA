@@ -6,17 +6,40 @@ import com.underarmour.pages.*;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.zebrunner.carina.crypto.Algorithm;
+import com.zebrunner.carina.crypto.CryptoTool;
+import com.zebrunner.carina.crypto.CryptoToolBuilder;
 import com.zebrunner.carina.utils.R;
+import com.zebrunner.carina.utils.config.Configuration;
+import com.zebrunner.carina.utils.config.EncryptorConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.lang.invoke.MethodHandles;
 
 public class BaseFunctionalityTest implements IAbstractTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+    private static String email;
+    private static String pass;
 
+//    @BeforeTest
+//    public void getCrews(){
+//        CryptoTool cryptoTool = CryptoToolBuilder.builder()
+//                .chooseAlgorithm(Algorithm.find(Configuration.get(EncryptorConfiguration.Parameter.CRYPTO_ALGORITHM).orElse("Not found any crypto algorithm")))
+//                .setKey(Configuration.get(EncryptorConfiguration.Parameter.CRYPTO_KEY_VALUE).orElse("Not found any crypto key"))
+//                .build();
+//        String CRYPTO_PATTERN = Configuration.get(EncryptorConfiguration.Parameter.CRYPTO_PATTERN).orElse("Not found any crypto pattern]");
+//        email = cryptoTool.decrypt(R.TESTDATA.get("under_armour.web.email"), CRYPTO_PATTERN);
+//        pass = cryptoTool.decrypt(R.TESTDATA.get("under_armour.web.password"), CRYPTO_PATTERN);
+//        System.out.printf("\n=========================\nBEFORE TEST\nemail: %s, password: %s%n\n=========================\n", email, pass);
+//    }
+    @Test
+    public void decryptTest(){
+        System.out.printf("\n=========================\nTEST\nemail: %s, password: %s%n\n=========================\n", email, pass);
+    }
     @Test
     @MethodOwner(owner = "spaseka")
     @TestLabel(name = "feature", value = { "web", "acceptance" })
@@ -40,7 +63,7 @@ public class BaseFunctionalityTest implements IAbstractTest {
     @Test
     @MethodOwner(owner = "spaseka")
     @TestLabel(name = "feature", value = { "web", "acceptance" })
-    public void loginTest() throws InterruptedException {
+    public void loginTest() {
         getDriver().get("https://www.underarmour.com/en-us/");
         HomePage homePage = new HomePage(getDriver());
         CommonPage commonPage = new CommonPage(getDriver());

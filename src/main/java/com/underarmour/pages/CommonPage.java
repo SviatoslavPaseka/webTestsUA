@@ -4,7 +4,9 @@ import com.zebrunner.carina.utils.R;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -23,8 +25,9 @@ public class CommonPage extends AbstractPage {
     private ExtendedWebElement acceptCookiesButton;
 
     public void closeAds(){
-        new WebDriverWait(driver, Duration.ofSeconds(30))
-                .until(ExpectedConditions.visibilityOfElementLocated(closeAdsButton.getBy())).click();
+        ExtendedWebElement button = (ExtendedWebElement) new WebDriverWait(driver, Duration.ofSeconds(30))
+                .until(ExpectedConditions.visibilityOfElementLocated(closeAdsButton.getBy()));
+        button.click();
     }
 
     public HomePage loginMethod(String email, String password){
