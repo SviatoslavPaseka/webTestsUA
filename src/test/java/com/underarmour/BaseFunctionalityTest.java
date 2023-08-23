@@ -67,7 +67,7 @@ public class BaseFunctionalityTest implements IAbstractTest {
         getDriver().get("https://www.underarmour.com/en-us/");
         HomePage homePage = new HomePage(getDriver());
         CommonPage commonPage = new CommonPage(getDriver());
-        commonPage.acceptCookies();
+//        commonPage.acceptCookies();
         Assert.assertTrue(homePage.isOpened(), "[HOME PAGE] is not opened");
         LoginModalContainer loginModalContainer = homePage.getHeaderMenu().clickLoginButton();
         Assert.assertTrue(loginModalContainer.isLoginContainerOpened(), "[LOGIN MODAL FORM] is no opened");
