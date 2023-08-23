@@ -40,6 +40,12 @@ public class BaseFunctionalityTest implements IAbstractTest {
     public void decryptTest(){
         System.out.printf("\n=========================\nTEST\nemail: %s, password: %s%n\n=========================\n", email, pass);
     }
+
+    @Test
+    public void checkingEnvInGithubActions(){
+        System.out.println(System.getenv("$EMAIL"));
+        System.out.println(System.getenv("$PASSWORD"));
+    }
     @Test
     @MethodOwner(owner = "spaseka")
     @TestLabel(name = "feature", value = { "web", "acceptance" })
