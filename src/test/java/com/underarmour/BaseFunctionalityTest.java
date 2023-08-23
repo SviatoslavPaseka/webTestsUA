@@ -43,8 +43,8 @@ public class BaseFunctionalityTest implements IAbstractTest {
 
     @Test
     public void checkingEnvInGithubActions(){
-        System.out.println(System.getenv("$EMAIL"));
-        System.out.println(System.getenv("$PASSWORD"));
+        System.out.println(System.getenv("EMAIL"));
+        System.out.println(System.getenv("PASSWORD"));
     }
     @Test
     @MethodOwner(owner = "spaseka")
