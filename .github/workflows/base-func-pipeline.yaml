@@ -37,12 +37,12 @@ jobs:
 
 #      - name: Run UI tests (add to cart test)
 #        run: mvn clean test -Dsuite=UA_suites/UA_addToCart_test
-#      - name: Run UI tests (login test)
+      - name: Run UI tests (login test)
 #        if: always()
-#        run: mvn clean test -Dsuite=UA_suites/UA_login_test
-      - name: Run UI tests (search test)
-        if: always()
-        run: mvn clean test -Dsuite=UA_suites/UA_search_test
-      - name: Run UI tests (sort test)
-        if: always()
-        run: mvn clean test -Dsuite=UA_suites/UA_sort_test
+        run: mvn clean test -Dsuite=UA_suites/UA_login_test
+#      - name: Run UI tests (search test)
+#        if: always()
+#        run: mvn clean test -Dsuite=UA_suites/UA_search_test
+#      - name: Run UI tests (sort test)
+#        if: always()
+#        run: mvn clean test -Dsuite=UA_suites/UA_sort_test
