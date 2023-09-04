@@ -94,6 +94,8 @@ public class BaseFunctionalityTest implements IAbstractTest {
         Assert.assertTrue(homePage.isOpened(), "[HOME PAGE] is not opened");
         LoginModalContainer loginModalContainer = homePage.getHeaderMenu().clickLoginButton();
         Assert.assertTrue(loginModalContainer.isLoginContainerOpened(), "[LOGIN MODAL FORM] is no opened");
+        System.out.println(System.getenv("EMAIL"));
+        System.out.println(System.getenv("PASSWORD"));
         loginModalContainer
                 .inputCredentials(System.getenv("EMAIL"), System.getenv("PASSWORD"));
         loginModalContainer.clickLoginButton();
