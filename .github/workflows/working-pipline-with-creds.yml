@@ -17,6 +17,9 @@ jobs:
   build:
     runs-on:
       ubuntu-latest
+    env: # Define your environment variables here
+      EMAIL: ${{github.event.inputs.email}}
+      PASSWORD: ${{github.event.inputs.password}}
     steps:
       - uses: actions/checkout@v3
       - name: Set up Java JDK 17
