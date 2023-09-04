@@ -2,9 +2,9 @@ name: Base functionality pipeline for UA website
 run-name: test from user @${{github.actor}}
 
 on:
-  push:
-    branches:
-      - main
+#  push:
+#    branches:
+#      - main
   workflow_dispatch:
 
 jobs:
