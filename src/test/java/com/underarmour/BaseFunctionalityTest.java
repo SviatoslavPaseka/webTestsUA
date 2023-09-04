@@ -86,6 +86,23 @@ public class BaseFunctionalityTest implements IAbstractTest {
     @Test
     @MethodOwner(owner = "spaseka")
     @TestLabel(name = "feature", value = { "web", "acceptance" })
+    public void loginTestForGHA() {
+        getDriver().get("https://www.underarmour.com/en-us/");
+        HomePage homePage = new HomePage(getDriver());
+        CommonPage commonPage = new CommonPage(getDriver());
+//        commonPage.acceptCookies();
+        Assert.assertTrue(homePage.isOpened(), "[HOME PAGE] is not opened");
+        LoginModalContainer loginModalContainer = homePage.getHeaderMenu().clickLoginButton();
+        Assert.assertTrue(loginModalContainer.isLoginContainerOpened(), "[LOGIN MODAL FORM] is no opened");
+        loginModalContainer
+                .inputCredentials(System.getenv("EMAIL"), System.getenv("PASSWORD"));
+        loginModalContainer.clickLoginButton();
+        Assert.assertTrue(homePage.getHeaderMenu().isMyAccountButtonPresent(), "[HOME PAGE] user in not successfully logged in");
+    }
+
+    @Test
+    @MethodOwner(owner = "spaseka")
+    @TestLabel(name = "feature", value = { "web", "acceptance" })
     public void addToCartTest() throws InterruptedException {
         final String keyword = "t-shirt";
         getDriver().get("https://www.underarmour.com/en-us/");
