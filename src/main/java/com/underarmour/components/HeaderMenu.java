@@ -8,9 +8,12 @@ import com.underarmour.pages.SearchPage;
 import com.zebrunner.carina.utils.factory.ICustomTypePageFactory;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HeaderMenu extends AbstractUIObject implements ICustomTypePageFactory {
 
@@ -53,9 +56,7 @@ public class HeaderMenu extends AbstractUIObject implements ICustomTypePageFacto
     }
 
     public SearchPage clickSearchButton(){
-        if (searchButton.isClickable()){
-            searchButton.click();
-        }
+        searchButton.click(20, ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.CustomLoader_container__giV5a")));
         return new SearchPage(driver);
     }
 
@@ -77,6 +78,7 @@ public class HeaderMenu extends AbstractUIObject implements ICustomTypePageFacto
     }
 
     public CartPage clickCartButton(){
+        cartButton.click();
         cartButton.click();
         return new CartPage(driver);
     }

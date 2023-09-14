@@ -25,9 +25,10 @@ public class CommonPage extends AbstractPage {
     private ExtendedWebElement acceptCookiesButton;
 
     public void closeAds(){
-        ExtendedWebElement button = (ExtendedWebElement) new WebDriverWait(driver, Duration.ofSeconds(30))
-                .until(ExpectedConditions.visibilityOfElementLocated(closeAdsButton.getBy()));
-        button.click();
+//        ExtendedWebElement button = (ExtendedWebElement)
+                new WebDriverWait(driver, Duration.ofSeconds(30))
+                .until(ExpectedConditions.visibilityOfElementLocated(closeAdsButton.getBy())).click();
+//        button.click();
     }
 
     public HomePage loginMethod(String email, String password){
@@ -44,6 +45,10 @@ public class CommonPage extends AbstractPage {
 
     public HomePage defaultLogin(){
         return loginMethod(R.TESTDATA.get("under_armour.web.email"), R.TESTDATA.get("under_armour.web.password"));
+    }
+
+    public HomePage defaultLoginForGHA(){
+        return loginMethod(System.getenv("EMAIL"), System.getenv("PASSWORD"));
     }
 
     public void acceptCookies(){

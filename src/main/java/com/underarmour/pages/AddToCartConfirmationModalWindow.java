@@ -13,10 +13,10 @@ public class AddToCartConfirmationModalWindow extends AbstractPage {
     @FindBy(css = "a.btn-primary")
     private ExtendedWebElement viewBagAndCheckoutButton;
 
-    @FindBy(css = "div.AddToCartConfirmationModal_cart-modal-footer__wOPgm > button.btn-secondary")
+    @FindBy(css = "div[class^='AddToCartConfirmationModal_cart-modal-footer__'] > button.btn-secondary")
     private ExtendedWebElement continueShoppingButton;
 
-    @FindBy(xpath = "//button[@aria-label='Close']")
+    @FindBy(xpath = "//button[@aria-label='Close Dialog'][@data-dismiss]")
     private ExtendedWebElement closeWindowButton;
 
     public boolean isOpened(){

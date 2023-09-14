@@ -25,10 +25,10 @@ public class SearchPage extends AbstractPage {
         super(driver);
     }
 
-    @FindBy(css = "div.ProductTile_product-item-link__4GZdP")
+    @FindBy(css = "div[class^= 'ProductTile_product-item-link']")
     private List<ExtendedWebElement> titlesOfProducts;
 
-    @FindBy(css = "a.ProductTile_product-item-link__4GZdP")
+    @FindBy(css = "a[class^= 'ProductTile_product-item-link']")
     private List<ExtendedWebElement> linksOfProducts;
 
     @FindBy(xpath = "//span[@data-testid='price-display-list-price']")
@@ -52,7 +52,8 @@ public class SearchPage extends AbstractPage {
     }
 
     public ProductPage clickOnProductByNumber(Integer number){
-        new WebDriverWait(driver, Duration.ofSeconds(20))
+        LOGGER.info("[SEARCH PAGE] number of products on the page: " + getLinksOfSearchingProducts().size());
+        new WebDriverWait(driver, Duration.ofSeconds(30))
                 .until(ExpectedConditions.elementToBeClickable(getLinksOfSearchingProducts().get(number).getBy()))
                 .click();
         return new ProductPage(driver);

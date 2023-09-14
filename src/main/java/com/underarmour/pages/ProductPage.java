@@ -11,10 +11,10 @@ public class ProductPage extends AbstractPage {
         super(driver);
     }
 
-    @FindBy(css = "div.ProductDetailContent_image-container__qFt5w > div + div > button > img")
+    @FindBy(css = "div[class^='ProductDetailContent_image-container__'] > div + div > button > img")
     private ExtendedWebElement firstImageOnPage;
 
-    @FindBy(css = "div.ProductDetailContent_productName__sHa24 > h1")
+    @FindBy(css = "div[class^='ProductDetailContent_productName__'] > h1")
     private ExtendedWebElement titleOfProduct;
 
     @FindBy(xpath = "//div[@id='product-price']/div/span")

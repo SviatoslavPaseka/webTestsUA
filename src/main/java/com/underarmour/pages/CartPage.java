@@ -27,7 +27,7 @@ public class CartPage extends AbstractPage {
     @FindBy(xpath = "//a[@data-testid='cartitem-product-name-link']")
     private List<ExtendedWebElement> productNameLinks;
 
-    @FindBy(xpath = "//div[@class='CartItem_price__lDsih']/div/span[@data-testid='price-display-list-price']")
+    @FindBy(xpath = "//div[contains(@class, 'CartItem_price__')]/div/span[@data-testid='price-display-list-price']")
     private List<ExtendedWebElement> productInCartPrices;
 
     @FindBy(xpath = "//div[@data-testid='order-totals-grand-total']")
@@ -75,6 +75,11 @@ public class CartPage extends AbstractPage {
         if (removeButtons.size() < number){
             Assert.fail("[CART PAGE] there are only )" + removeButtons.size() + " remove buttons");
         }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         removeButtons.get(number).click();
         return new RemoveItemModalWindow(driver);
     }
@@ -84,9 +89,14 @@ public class CartPage extends AbstractPage {
             LOGGER.info("[CART PAGE] cart is already clean");
         }else {
             for (int i = 0; i < removeButtons.size(); i++) {
-                clickRemoveButton(i);
+                clickRemoveButton(i).clickOnRemoveButton();
             }
         }
         return this;
+    }
+
+    public ShippingStepPage clickCheckoutButton(){
+        checkoutButton.click();
+        return new ShippingStepPage(driver);
     }
 }

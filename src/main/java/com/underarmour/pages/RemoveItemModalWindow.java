@@ -10,13 +10,13 @@ public class RemoveItemModalWindow extends AbstractPage {
         super(driver);
     }
 
-    @FindBy(css = "div.modal_modal-container__AWbQx > h1")
+    @FindBy(css = "div[class^='modal_modal-container__'] > h1")
     private ExtendedWebElement title;
 
-    @FindBy(css = "div.CartItem_modal-buttons__aqGY2 > button.btn-primary")
+    @FindBy(css = "div[class^='CartItem_modal-buttons__'] > button.btn-primary")
     private ExtendedWebElement removeItemButton;
 
-    @FindBy(css = "div.CartItem_modal-buttons__aqGY2 > button.btn-secondary")
+    @FindBy(css = "div[class^='CartItem_modal-buttons__'] > button.btn-secondary")
     private ExtendedWebElement cancelRemovingButton;
 
     public boolean isOpened(){
