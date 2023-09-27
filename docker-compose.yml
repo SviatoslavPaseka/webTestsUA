@@ -21,6 +21,8 @@ services:
     ports:
       - "4444:4444"
     container_name: selenium-firefox
+    networks:
+      - my_network
   myapp:
     build: .
     ports:
