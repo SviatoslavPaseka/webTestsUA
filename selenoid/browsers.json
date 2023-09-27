@@ -1,0 +1,11 @@
+{
+  "chrome": {
+    "default": "115.0.5790.102",
+    "versions": {
+      "115.0.5790.102": {
+        "image": "selenoid/chrome:latest",
+        "port": "4444"
+      }
+    }
+  }
+}

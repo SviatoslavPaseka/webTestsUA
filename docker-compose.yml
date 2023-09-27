@@ -1,0 +1,35 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    restart: always
+    privileged: true
+    user: root
+    ports:
+      - "8080:8080"
+    volumes:
+      - /Users/sviatoslavpaseka/jenkins-data:/var/jenkins_home
+    networks:
+      - my_network
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+#      - JENKINS_OPTS=--prefix=/jenkins
+    container_name: jenkins2
+
+  selenium:
+    image: selenium/standalone-firefox
+    ports:
+      - "4444:4444"
+    container_name: selenium-firefox
+  myapp:
+    build: .
+    ports:
+      - "9090:9090"
+
+networks:
+  my_network:
+    driver: bridge
+
+volumes:
+  jenkins_data:
+  selenoid_configs:
