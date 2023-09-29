@@ -103,7 +103,7 @@ public class BaseFunctionalityTest implements IAbstractTest {
         CartPage cartPage = confirmationModalWindow.clickViewBagAndCheckoutButton();
         Assert.assertEquals(cartPage.getNameProduct(0), productName, "[CART PAGE] product name is not the same that was added");
         Assert.assertEquals(cartPage.getPriceProduct(0), productPrice, "[CART PAGE] product price is not the same that was added");
-        LOGGER.info("TOTAL CART PRICE: " + cartPage.getTotalPriceInCart());
+        LOGGER.info("TOTAL CART PRIsCE: " + cartPage.getTotalPriceInCart());
         Thread.sleep(5000);
     }
 
